@@ -9,10 +9,17 @@ form.addEventListener('submit', function(event) {
   let addition = 0;
   const multiply = parseInt(document.getElementById('Multiply').value);
   function product() {
-    for (let counting = 1; counting <= multiply; counting++) {
-      addition = addition+number;
+    if (Math.sign(multiply) == 1) {
+      for (let counting = 1; counting <= multiply; counting++) {
+        addition = addition+number;
+      }
+      return addition
+    } else if (Math.sign(multiply) == -1) {
+      for (let counting = -1; counting >= multiply; counting--) {
+        addition = addition-number;
+      }
+      return addition
     }
-    return addition
   }
   resultDiv.innerHTML = `The Product of ${number} x ${multiply} = ${product()}`
 });
